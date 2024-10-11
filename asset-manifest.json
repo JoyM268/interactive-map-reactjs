@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/interactive-map-reactjs/static/css/main.6d2b71b7.css",
+    "main.js": "/interactive-map-reactjs/static/js/main.e38b17a9.js",
+    "index.html": "/interactive-map-reactjs/index.html",
+    "main.6d2b71b7.css.map": "/interactive-map-reactjs/static/css/main.6d2b71b7.css.map",
+    "main.e38b17a9.js.map": "/interactive-map-reactjs/static/js/main.e38b17a9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d2b71b7.css",
+    "static/js/main.e38b17a9.js"
+  ]
+}
