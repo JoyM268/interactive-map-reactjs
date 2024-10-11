@@ -5,6 +5,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 	const [result, setResult] = useState("");
+	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
 		async function search() {
@@ -29,13 +30,15 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 		}
 		if (selectedName !== "") {
 			search();
+			setIsVisible(true);
+		} else {
+			setIsVisible(false);
 		}
 	}, [selectedName]);
 
 	return (
 		<div
-			className={`sidebar ${selectedName === "" ? "hide" : "show"} 
-			}`}
+			className={`sidebar ${isVisible ? "show" : "hide"}`}
 			style={{
 				paddingTop: loading || error ? "300px" : "50px",
 				alignItems: loading || error ? "center" : "flex-start",
@@ -53,7 +56,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 			}}
 		>
 			<span
-				class="close-btn"
+				className="close-btn"
 				style={
 					isDarkMode
 						? { backgroundColor: "#609ab1" }
@@ -79,56 +82,46 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 							: selectedName.toUpperCase()}
 					</h1>
 					<img src={result.flags?.png} alt={result.flags?.alt} />
-					{result?.population ? (
+					{result?.population && (
 						<span>
 							<b>Population: </b>
 							{parseInt(result.population).toLocaleString(
 								"en-US"
 							)}
 						</span>
-					) : (
-						""
 					)}
 
-					{result?.continents ? (
+					{result?.continents && (
 						<span>
 							<b>Continents: </b>
 							{result.continents.join(", ")}
 						</span>
-					) : (
-						""
 					)}
 
-					{result?.languages ? (
+					{result?.languages && (
 						<span>
 							<b>Languages: </b>
 							{Object.values(result.languages).join(", ")}
 						</span>
-					) : (
-						""
 					)}
 
-					{result.capital ? (
+					{result.capital && (
 						<span>
 							<b>Capital City: </b>
 							{result.capital}
 						</span>
-					) : (
-						""
 					)}
 
-					{result.currencies ? (
+					{result.currencies && (
 						<span>
 							<b>Currency: </b>
 							{Object.values(result.currencies)[0].name}
 						</span>
-					) : (
-						""
 					)}
 				</>
 			)}
 			{error && (
-				<h2>{`No Data Avaialable for the country ${selectedName}`}</h2>
+				<h2>{`No Data Available for the country ${selectedName}`}</h2>
 			)}
 		</div>
 	);
