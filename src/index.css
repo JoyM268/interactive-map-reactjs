@@ -91,7 +91,6 @@
 	padding-left: 40px;
 	transition: transform 0.5s ease-in-out;
 	left: 0;
-	-webkit-overflow-scrolling: touch;
 }
 
 .show {
@@ -250,4 +249,16 @@ input:checked + .slider:before {
 
 .zoom button:disabled {
 	cursor: not-allowed;
+}
+
+.sidebar,
+.country-name,
+.zoom,
+.dark-mode {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
