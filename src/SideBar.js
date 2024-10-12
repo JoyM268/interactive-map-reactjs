@@ -9,6 +9,16 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
+		if (selectedName !== "") {
+			document.title = `Country | ${selectedName}`;
+		}
+
+		return () => {
+			document.title = "Interactive Map";
+		};
+	}, [selectedName]);
+
+	useEffect(() => {
 		async function search() {
 			try {
 				setLoading(true);

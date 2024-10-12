@@ -17,12 +17,9 @@ export default function App() {
 		}
 	}, [isDarkMode]);
 
-	if (isMobile) {
-		document.querySelector("#root").style.overflowY = "hidden";
-	}
-
 	useEffect(() => {
 		if (isMobile) {
+			document.querySelector("#root").style.overflowY = "hidden";
 			document.querySelector("#root").scroll(800, 0);
 		}
 	}, []);
