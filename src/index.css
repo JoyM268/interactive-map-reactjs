@@ -236,10 +236,18 @@ input:checked + .slider:before {
 
 .zoom-btn-dark:hover,
 .zoom-btn-light:hover {
-	opacity: 0.6;
+	opacity: 0.8;
 }
 
 .zoom-value {
 	margin-top: 5px;
 	font-family: "Courier New", Courier, monospace;
+}
+
+.close-btn:hover {
+	opacity: 0.7;
+}
+
+.zoom button:disabled {
+	cursor: not-allowed;
 }
