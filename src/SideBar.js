@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
+import Disclaimer from "./Disclaimer";
 
 export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 	const [loading, setLoading] = useState(false);
@@ -28,6 +29,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 				setLoading(false);
 			}
 		}
+
 		if (selectedName !== "") {
 			search();
 			setIsVisible(true);
@@ -119,6 +121,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 							{Object.values(result.currencies)[0].name}
 						</span>
 					)}
+					<Disclaimer isDarkMode={isDarkMode} />
 				</>
 			)}
 			{error && (

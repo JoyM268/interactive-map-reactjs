@@ -33,10 +33,6 @@
 }
 
 .svg-dark {
-	padding-top: 60px;
-	padding-left: 35px;
-	width: fit-content;
-	height: fit-content;
 	stroke: black;
 }
 
@@ -54,11 +50,16 @@
 }
 
 .svg-light {
+	stroke: rgb(255, 255, 255);
+}
+
+.svg-dark,
+.svg-light {
+	transition: transform 0.3s ease-in-out;
 	padding-top: 60px;
 	padding-left: 35px;
 	width: fit-content;
 	height: fit-content;
-	stroke: rgb(255, 255, 255);
 }
 
 .country-name {
@@ -78,7 +79,7 @@
 	width: 400px;
 	border-right-width: 4px;
 	border-right-style: solid;
-	overflow: scroll;
+	overflow-y: auto;
 	scrollbar-width: none;
 	z-index: 200;
 	display: flex;

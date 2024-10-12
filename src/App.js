@@ -28,7 +28,7 @@ export default function App() {
 	}, []);
 
 	return (
-		<div style={{ alignItems: "center" }}>
+		<div>
 			<Zoom isDarkMode={isDarkMode} />
 			{selectedName && (
 				<SideBar
