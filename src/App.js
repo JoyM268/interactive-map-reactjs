@@ -7,13 +7,17 @@ import Zoom from "./Zoom";
 
 export default function App() {
 	const [selectedName, setSelectedName] = useState("");
-	const [isDarkMode, setIsDarkMode] = useState(false);
+	const [isDarkMode, setIsDarkMode] = useState(
+		localStorage.getItem("DarkMode") === "true" ? true : false
+	);
 
 	useEffect(() => {
 		if (isDarkMode) {
 			document.body.style.backgroundColor = "#002127";
+			localStorage.setItem("DarkMode", "true");
 		} else {
 			document.body.style.backgroundColor = "#79b4c1";
+			localStorage.setItem("DarkMode", "false");
 		}
 	}, [isDarkMode]);
 
