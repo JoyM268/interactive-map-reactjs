@@ -1,4 +1,5 @@
 import Map from "./Map";
+import { isMobile } from "react-device-detect";
 import { useEffect, useState } from "react";
 import DarkMode from "./DarkMode";
 import SideBar from "./SideBar";
@@ -16,8 +17,12 @@ export default function App() {
 		}
 	}, [isDarkMode]);
 
+	if (isMobile) {
+		document.querySelector("#root").style.overflowY = "hidden";
+	}
+
 	return (
-		<>
+		<div style={{ alignItems: "center" }}>
 			<Zoom isDarkMode={isDarkMode} />
 			{selectedName && (
 				<SideBar
@@ -32,6 +37,6 @@ export default function App() {
 				setSelectedName={setSelectedName}
 			/>
 			<DarkMode isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-		</>
+		</div>
 	);
 }

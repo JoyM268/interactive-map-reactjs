@@ -68,12 +68,13 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 			</span>
 			{loading && (
 				<Loading
-					rotateColor={isDarkMode ? "#0820fe" : "rgb(0, 153, 255)"}
+					rotateColor={isDarkMode ? "#1289b8" : "rgb(0, 153, 255)"}
 					circleColor={
-						isDarkMode ? "rgb(180, 202, 230)" : "rgb(237, 239, 242)"
+						isDarkMode ? "rgb(204, 213, 227)" : "rgb(237, 239, 242)"
 					}
 				/>
 			)}
+
 			{!loading && !error && (
 				<>
 					<h1>

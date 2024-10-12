@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { isMobile } from "react-device-detect";
 
 export default function Map({ selectedName, setSelectedName, isDarkMode }) {
 	const [hoverName, setHoverName] = useState("");
@@ -31,7 +32,7 @@ export default function Map({ selectedName, setSelectedName, isDarkMode }) {
 
 	return (
 		<>
-			{selectedName === "" && (
+			{selectedName === "" && !isMobile && (
 				<span
 					className="country-name"
 					style={
@@ -43,6 +44,7 @@ export default function Map({ selectedName, setSelectedName, isDarkMode }) {
 					{hoverName}
 				</span>
 			)}
+
 			<svg
 				className={isDarkMode ? "svg-dark" : "svg-light"}
 				onClick={changeSelectedName}
