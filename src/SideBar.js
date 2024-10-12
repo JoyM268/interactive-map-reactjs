@@ -122,7 +122,9 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 				</>
 			)}
 			{error && (
-				<h2>{`No Data Available for the country ${selectedName}`}</h2>
+				<h2
+					style={{ textAlign: "center", paddingRight: "30px" }}
+				>{`No Data Available For The Country ${selectedName}`}</h2>
 			)}
 		</div>
 	);
