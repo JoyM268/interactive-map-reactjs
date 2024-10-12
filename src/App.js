@@ -21,6 +21,12 @@ export default function App() {
 		document.querySelector("#root").style.overflowY = "hidden";
 	}
 
+	useEffect(() => {
+		if (isMobile) {
+			document.querySelector("#root").scroll(800, 0);
+		}
+	}, []);
+
 	return (
 		<div style={{ alignItems: "center" }}>
 			<Zoom isDarkMode={isDarkMode} />
