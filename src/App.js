@@ -4,23 +4,12 @@ import { useEffect, useState } from "react";
 import DarkMode from "./DarkMode";
 import SideBar from "./SideBar";
 import Zoom from "./Zoom";
-import { useParams, useNavigate } from "react-router-dom";
 
 export default function App() {
-	const { countryName } = useParams();
-	const navigate = useNavigate();
-	const [selectedName, setSelectedName] = useState(countryName || "");
+	const [selectedName, setSelectedName] = useState("");
 	const [isDarkMode, setIsDarkMode] = useState(
 		localStorage.getItem("DarkMode") === "true" ? true : false
 	);
-
-	useEffect(() => {
-		if (selectedName !== "") {
-			navigate(`/interactive-app-reactjs/${selectedName.toLowerCase()}`);
-		} else {
-			navigate(`/interactive-app-reactjs`);
-		}
-	}, [selectedName, navigate]);
 
 	useEffect(() => {
 		if (isDarkMode) {
