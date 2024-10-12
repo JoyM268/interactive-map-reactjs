@@ -12,7 +12,7 @@ export default function Map({ selectedName, setSelectedName, isDarkMode }) {
 			} else {
 				country = e.target.classList.value;
 			}
-			country === selectedName
+			country.toLowerCase() === selectedName.toLowerCase()
 				? setSelectedName("")
 				: setSelectedName(country);
 		}
