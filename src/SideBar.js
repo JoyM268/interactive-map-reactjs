@@ -2,15 +2,6 @@ import { useState, useEffect } from "react";
 import Loading from "./Loading";
 import Disclaimer from "./Disclaimer";
 
-function titleCase(str) {
-	if (str === null || str === "") return false;
-	else str = str.toString();
-
-	return str.replace(/\w\S*/g, function (txt) {
-		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-	});
-}
-
 export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
@@ -19,7 +10,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 
 	useEffect(() => {
 		if (selectedName !== "") {
-			document.title = `Country | ${titleCase(selectedName)}`;
+			document.title = `Country | ${selectedName}`;
 		}
 
 		return () => {
