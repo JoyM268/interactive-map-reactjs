@@ -22,7 +22,7 @@ Make sure you have the following installed:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/interactive-world-map.git
+    git clone https://github.com/JoyM268/interactive-world-map.git
     ```
 
 2. **Navigate to the project directory:**
