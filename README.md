@@ -59,4 +59,4 @@ Contributions are welcome! Please submit a pull request or open an issue for any
 
 ## Contact
 
-For any questions or suggestions, please reach out to [your email](mailto:joymascarenhas268@gmail.com).
+For any questions or suggestions, please reach out to [joymascarenhas268@gmail.com](mailto:joymascarenhas268@gmail.com).
