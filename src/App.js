@@ -3,6 +3,7 @@ import { isMobile } from "react-device-detect";
 import { useEffect, useState } from "react";
 import DarkMode from "./DarkMode";
 import SideBar from "./SideBar";
+import { AnimatePresence } from "framer-motion";
 import Zoom from "./Zoom";
 
 export default function App() {
@@ -31,13 +32,15 @@ export default function App() {
 	return (
 		<div>
 			<Zoom isDarkMode={isDarkMode} />
-			{selectedName && (
-				<SideBar
-					selectedName={selectedName}
-					isDarkMode={isDarkMode}
-					setSelectedName={setSelectedName}
-				/>
-			)}
+			<AnimatePresence>
+				{selectedName && (
+					<SideBar
+						selectedName={selectedName}
+						isDarkMode={isDarkMode}
+						setSelectedName={setSelectedName}
+					/>
+				)}
+			</AnimatePresence>
 			<Map
 				isDarkMode={isDarkMode}
 				selectedName={selectedName}

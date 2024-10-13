@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
+import { motion } from "framer-motion";
 import Disclaimer from "./Disclaimer";
 
 export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
@@ -48,9 +49,19 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 		}
 	}, [selectedName]);
 
+	const sidebarVariants = {
+		hidden: { x: "-100%" },
+		visible: { x: 0, transition: { duration: 0.5 } },
+		exit: { x: "-100%", transition: { duration: 0.5 } },
+	};
+
 	return (
-		<div
-			className={`sidebar ${isVisible ? "show" : "hide"}`}
+		<motion.div
+			className={`sidebar`}
+			initial="hidden"
+			variants={sidebarVariants}
+			exit="exit"
+			animate={isVisible ? "visible" : "hidden"}
 			style={{
 				paddingTop: loading || error ? "300px" : "50px",
 				alignItems: loading || error ? "center" : "flex-start",
@@ -139,6 +150,6 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 					style={{ textAlign: "center", paddingRight: "30px" }}
 				>{`No Data Available For The Country ${selectedName}`}</h2>
 			)}
-		</div>
+		</motion.div>
 	);
 }

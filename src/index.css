@@ -89,16 +89,7 @@
 	gap: 22px;
 	align-items: start;
 	padding-left: 40px;
-	transition: transform 0.5s ease-in-out;
 	left: 0;
-}
-
-.show {
-	transform: translateX(0);
-}
-
-.hide {
-	transform: translateX(-100%);
 }
 
 .dark-mode {
