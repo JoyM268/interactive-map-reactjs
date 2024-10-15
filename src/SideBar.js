@@ -100,7 +100,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 
 			{!loading && !error && (
 				<>
-					<h1>
+					<h1 class="font-bold text-2xl font-sans">
 						{result.name?.common
 							? result.name?.common.toUpperCase()
 							: selectedName.toUpperCase()}
