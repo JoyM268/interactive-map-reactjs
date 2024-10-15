@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 export default function Zoom({ isDarkMode }) {
 	const [zoom, setZoom] = useState(100);
@@ -6,7 +7,7 @@ export default function Zoom({ isDarkMode }) {
 	useEffect(() => {
 		document.querySelector("svg").style.transform = `scale(${zoom / 100})`;
 		document.querySelector("svg").style.transform = `scale(${zoom / 100})`;
-		if (zoom === 100) {
+		if (zoom === 100 && !isMobile) {
 			document.body.style.overflow = "hidden";
 		} else {
 			document.body.style.overflow = "scroll";

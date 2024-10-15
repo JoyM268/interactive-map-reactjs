@@ -31,7 +31,7 @@ export default function Map({ selectedName, setSelectedName, isDarkMode }) {
 	}
 
 	return (
-		<>
+		<div className="map">
 			{selectedName === "" && !isMobile && (
 				<span
 					className="country-name"
@@ -2111,6 +2111,6 @@ export default function Map({ selectedName, setSelectedName, isDarkMode }) {
 				<circle cx="673.5" cy="724.1" id="1"></circle>
 				<circle cx="1798.2" cy="719.3" id="2"></circle>
 			</svg>
-		</>
+		</div>
 	);
 }
