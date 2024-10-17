@@ -57,34 +57,24 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 
 	return (
 		<motion.div
-			className={`sidebar`}
 			initial="hidden"
 			variants={sidebarVariants}
 			exit="exit"
 			animate={isVisible ? "visible" : "hidden"}
-			style={{
-				paddingTop: loading || error ? "300px" : "50px",
-				alignItems: loading || error ? "center" : "flex-start",
-				...(isDarkMode
-					? {
-							backgroundColor: "#05445d",
-							borderRightColor: "#1f5e76",
-							color: "white",
-					  }
-					: {
-							backgroundColor: "#308598",
-							borderRightColor: "#05445d",
-							color: "black",
-					  }),
-			}}
+			className={`${
+				loading || error
+					? "pt-[300px] items-center"
+					: "items-start pt-[50px]"
+			} ${
+				isDarkMode
+					? "bg-[#05445d] border-r-[#1f5e76] text-white"
+					: "bg-[#308598] border-r-[#05445d] text-black"
+			} h-full w-[400px] fixed border-r-[4px] border-solid overflow-y-auto z-[200] flex flex-col pt-[50px] gap-[22px] items-start pl-[40px] left-0 scrollbar-none no-select`}
 		>
 			<span
-				className="close-btn"
-				style={
-					isDarkMode
-						? { backgroundColor: "#609ab1" }
-						: { backgroundColor: "#105f7e" }
-				}
+				className={`${
+					isDarkMode ? "bg-[#609ab1]" : "bg-[#105f7e]"
+				} font-sans absolute right-0 top-0 font-bold px-2.5 py-2 cursor-pointer hover:opacity-[0.7]`}
 				onClick={() => setSelectedName("")}
 			>
 				X
@@ -95,60 +85,62 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 					circleColor={
 						isDarkMode ? "rgb(204, 213, 227)" : "rgb(237, 239, 242)"
 					}
+					marginTop="270px"
 				/>
 			)}
 
 			{!loading && !error && (
 				<>
-					<h1 class="font-bold text-2xl font-sans">
+					<h1 className="font-bold text-4xl tracking-wide font-sans">
 						{result.name?.common
 							? result.name?.common.toUpperCase()
 							: selectedName.toUpperCase()}
 					</h1>
 					<img src={result.flags?.png} alt={result.flags?.alt} />
-					{result?.population && (
-						<span>
-							<b>Population: </b>
-							{parseInt(result.population).toLocaleString(
-								"en-US"
-							)}
-						</span>
-					)}
+					<div className="flex flex-col gap-4 font-sans mt-[15px]">
+						{result?.population && (
+							<span>
+								<b className="font-bold">Population: </b>
+								{parseInt(result.population).toLocaleString(
+									"en-US"
+								)}
+							</span>
+						)}
 
-					{result?.continents && (
-						<span>
-							<b>Continents: </b>
-							{result.continents.join(", ")}
-						</span>
-					)}
+						{result?.continents && (
+							<span>
+								<b className="font-bold">Continents: </b>
+								{result.continents.join(", ")}
+							</span>
+						)}
 
-					{result?.languages && (
-						<span>
-							<b>Languages: </b>
-							{Object.values(result.languages).join(", ")}
-						</span>
-					)}
+						{result?.languages && (
+							<span>
+								<b className="font-bold">Languages: </b>
+								{Object.values(result.languages).join(", ")}
+							</span>
+						)}
 
-					{result.capital && (
-						<span>
-							<b>Capital City: </b>
-							{result.capital}
-						</span>
-					)}
+						{result.capital && (
+							<span>
+								<b className="font-bold">Capital City: </b>
+								{result.capital}
+							</span>
+						)}
 
-					{result.currencies && (
-						<span>
-							<b>Currency: </b>
-							{Object.values(result.currencies)[0].name}
-						</span>
-					)}
+						{result.currencies && (
+							<span>
+								<b className="font-bold">Currency: </b>
+								{Object.values(result.currencies)[0].name}
+							</span>
+						)}
+					</div>
+
 					<Disclaimer isDarkMode={isDarkMode} />
 				</>
 			)}
 			{error && (
-				<h2
-					style={{ textAlign: "center", paddingRight: "30px" }}
-				>{`No Data Available For The Country ${selectedName}`}</h2>
+				<h2 className="text-center pr-8 text-2xl font-bold mt-[270px] select-none">{`No Data Available For The Country ${selectedName}`}</h2>
 			)}
 		</motion.div>
 	);

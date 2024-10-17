@@ -1,29 +1,19 @@
 import lightMode from "./images/light-mode.png";
 import darkMode from "./images/dark-mode.png";
 
-export default function DarkMode({ isDarkMode, setIsDarkMode }) {
+export default function DarkMode({ children, isDarkMode }) {
 	return (
-		<div class="dark-mode">
+		<div className="fixed right-0 top-0 pt-[10px] pr-[20px] flex items-center gap-[10px] z-100 no-select">
 			{isDarkMode ? (
-				<img src={darkMode} alt="Dark mode" />
+				<img src={darkMode} alt="Dark mode" className="h-[34px]" />
 			) : (
 				<img
 					src={lightMode}
 					alt="Light Mode"
-					style={{ filter: "invert(1)" }}
+					className="h-[34px] invert"
 				/>
 			)}
-			<label class="switch">
-				<input
-					type="checkbox"
-					checked={isDarkMode}
-					onChange={(e) => setIsDarkMode(e.target.checked)}
-				/>
-				<span
-					class="slider round"
-					style={{ outline: "#028fbe 1px solid" }}
-				></span>
-			</label>
+			{children}
 		</div>
 	);
 }

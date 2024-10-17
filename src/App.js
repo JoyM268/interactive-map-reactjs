@@ -6,6 +6,7 @@ import DarkMode from "./DarkMode";
 import SideBar from "./SideBar";
 import { AnimatePresence } from "framer-motion";
 import Zoom from "./Zoom";
+import Switch from "./Switch";
 
 export default function App() {
 	const [selectedName, setSelectedName] = useState("");
@@ -59,7 +60,13 @@ export default function App() {
 				selectedName={selectedName}
 				setSelectedName={setSelectedName}
 			/>
-			<DarkMode isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+			<DarkMode isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}>
+				<Switch
+					isOn={isDarkMode}
+					setIsOn={setIsDarkMode}
+					outlineColor="#028fbe"
+				/>
+			</DarkMode>
 		</div>
 	);
 }
