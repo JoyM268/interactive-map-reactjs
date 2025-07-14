@@ -38,8 +38,6 @@ Below are some screenshots showcasing the application's features and appearance:
 - Light and dark mode toggle
 - Responsive design for mobile and desktop
 - URL routing: `/countryname` opens sidebar for that country
-- Sidebar can be closed to return to the homepage
-- Fast, modern UI with smooth animations
 
 ## Getting Started
 
