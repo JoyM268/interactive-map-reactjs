@@ -69,7 +69,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 				isDarkMode
 					? "bg-[#05445d] border-r-[#1f5e76] text-white"
 					: "bg-[#308598] border-r-[#05445d] text-black"
-			} h-full w-[400px] fixed border-r-[4px] border-solid overflow-y-auto z-[200] flex flex-col pt-[50px] gap-[22px] items-start pl-[40px] left-0 scrollbar-none no-select`}
+			} h-full lg:w-[400px] sm:w-full fixed border-r-[4px] border-solid overflow-y-auto z-[200] flex flex-col pt-[50px] gap-[22px] items-start pl-[40px] left-0 scrollbar-none no-select`}
 		>
 			<span
 				className={`${
@@ -96,7 +96,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 							? result.name?.common.toUpperCase()
 							: selectedName.toUpperCase()}
 					</h1>
-					<img src={result.flags?.png} alt={result.flags?.alt} />
+					<img src={result.flags?.png} alt={result.flags?.alt} className="max-w-[260px]" />
 					<div className="flex flex-col gap-4 font-sans mt-[15px]">
 						{result?.population && (
 							<span>
