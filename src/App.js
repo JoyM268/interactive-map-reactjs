@@ -7,13 +7,34 @@ import SideBar from "./SideBar";
 import { AnimatePresence } from "framer-motion";
 import Zoom from "./Zoom";
 import Switch from "./Switch";
+import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } from "react-router-dom";
 
-export default function App() {
+function AppContent() {
 	const [selectedName, setSelectedName] = useState("");
 	const [isDarkMode, setIsDarkMode] = useState(
 		localStorage.getItem("DarkMode") === "true" ? true : false
 	);
 	const { type } = useOrientation();
+	const navigate = useNavigate();
+	const params = useParams();
+	const location = useLocation();
+
+	useEffect(() => {
+		if (params.country) {
+			setSelectedName(params.country);
+		} else {
+			setSelectedName("");
+		}
+
+	}, [params.country]);
+
+	useEffect(() => {
+		if (selectedName) {
+			navigate(`/${selectedName}`);
+		} else if (location.pathname !== "/") {
+			navigate("/");
+		}
+	}, [selectedName]);
 
 	useEffect(() => {
 		if (isDarkMode) {
@@ -68,5 +89,16 @@ export default function App() {
 				/>
 			</DarkMode>
 		</div>
+	);
+}
+
+export default function App() {
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<AppContent />} />
+				<Route path=":country" element={<AppContent />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
