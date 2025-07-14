@@ -85,7 +85,7 @@ export default function SideBar({ selectedName, isDarkMode, setSelectedName }) {
 					circleColor={
 						isDarkMode ? "rgb(204, 213, 227)" : "rgb(237, 239, 242)"
 					}
-					marginTop="270px"
+					marginTop="0px"
 				/>
 			)}
 
