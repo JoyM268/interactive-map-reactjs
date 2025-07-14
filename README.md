@@ -4,7 +4,7 @@ An interactive world map application built using ReactJS and the REST Countries 
 
 ## Live Website
 
-Check out the live version of the website: [Interactive World Map](https://joym268.github.io/interactive-map-reactjs/)
+Check out the live version of the website: [Interactive World Map](https://interactive-map-reactjs.vercel.app/)
 
 ## Getting Started
 
